@@ -45,28 +45,26 @@ Se precisar remover os pacotes instalados:
 
 ## 📋 Checklist Pós-Instalação
 
-Depois que o script terminar, execute:
+> ✅ O `install.sh` já configura **automaticamente**: shell padrão (Fish), terminal padrão (Kitty + kitty.conf), Oh My Fish com tema agnoster, grupo Docker e serviços do sistema.
 
-### 1. Mude o shell padrão para Fish
-```bash
-chsh -s /bin/fish
-# Faça logout e login para aplicar
-```
+### 1. Faça logout e login
+Necessário para aplicar o **shell padrão (Fish)** e as **permissões de grupo (Docker)**.
 
-### 2. Configure Docker (se instalado)
+### 2. Teste a instalação
 ```bash
-sudo usermod -aG docker $USER
-# Faça logout e login
-```
-
-### 3. Teste a instalação
-```bash
-# Verifique alguns pacotes importantes
 git --version
 node --version
+ng version          # Angular CLI
 docker --version
 flatpak --version
 paru --version
+echo $SHELL         # deve apontar para o fish
+```
+
+### 3. Configure o Git
+```bash
+git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"
 ```
 
 ## 🐛 Problemas Comuns
@@ -106,9 +104,10 @@ arch-post-install/
 ├── install.sh                 # Script principal de instalação
 ├── install-from-config.sh     # Script customizável via packages.conf
 ├── packages.conf              # Arquivo de configuração de pacotes
-├── uninstall.sh              # Script para desinstalar
-├── README.md                 # Documentação completa
-└── QUICKSTART.md             # Este arquivo
+├── uninstall.sh               # Script para desinstalar
+├── kitty.conf                 # Config do terminal Kitty (Dracula Purple)
+├── README.md                  # Documentação completa
+└── QUICKSTART.md              # Este arquivo
 ```
 
 ## ⚡ Dicas Rápidas
